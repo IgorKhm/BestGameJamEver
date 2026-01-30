@@ -245,6 +245,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2687339}
   m_CullTransparentMesh: 1
+--- !u!4 &78806367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1647391097776945523, guid: 62375fae7b4de65409f0577042df0c3d, type: 3}
+  m_PrefabInstance: {fileID: 3030496340788757250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &193113791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3430220557291925538, guid: 6d30ebf82f41cb54fbcf0ab944c34663, type: 3}
@@ -1902,6 +1907,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772517053}
   m_CullTransparentMesh: 1
+--- !u!4 &773701977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1423454556919114111, guid: ea4d2b28662b3fe4db7a5e81f20bbe15, type: 3}
+  m_PrefabInstance: {fileID: 8432966387139254670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &822887474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,9 +2070,9 @@ MonoBehaviour:
   builderPanel: {fileID: 767553662}
   stateText: {fileID: 0}
   npcSpawner: {fileID: 193113791}
-  playerTransform: {fileID: 0}
-  playerStartPoint: {fileID: 0}
-  doorQueuePoint: {fileID: 0}
+  playerTransform: {fileID: 78806367}
+  playerStartPoint: {fileID: 1694791836}
+  doorQueuePoint: {fileID: 773701977}
 --- !u!4 &983099503
 Transform:
   m_ObjectHideFlags: 0
@@ -2450,6 +2460,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578914505}
   m_CullTransparentMesh: 1
+--- !u!4 &1694791836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8191398071097625169, guid: a0c849e653279744e9856f5a0fdb5032, type: 3}
+  m_PrefabInstance: {fileID: 201825942435706993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1695535479
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,7 +3161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191398071097625169, guid: a0c849e653279744e9856f5a0fdb5032, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 8191398071097625169, guid: a0c849e653279744e9856f5a0fdb5032, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3199,7 +3214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1647391097776945523, guid: 62375fae7b4de65409f0577042df0c3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 1647391097776945523, guid: 62375fae7b4de65409f0577042df0c3d, type: 3}
       propertyPath: m_LocalPosition.y
