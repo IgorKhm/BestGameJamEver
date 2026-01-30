@@ -81,7 +81,6 @@ MonoBehaviour:
   topSpawnPoint: {fileID: 7365356406425886180}
   bottomSpawnPoint: {fileID: 7402174588817946911}
   npcPrefab: {fileID: 3616767343696062117, guid: 195350641ddb24d4599201e9a790cae7, type: 3}
-  _spawnFrequency: 0.1
 --- !u!1 &7529812388970616198
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relevantFeatureCount: 2
   maxCapacity: 20
-  npcDoorInterval: 0.2
-  npcMoveSpeed: 2
+  npcDoorInterval: 1
+  npcMoveMinSpeed: 1
+  npcMoveMaxSpeed: 1.8
   forwardWalkTime: 6
   walkBackTime: 4

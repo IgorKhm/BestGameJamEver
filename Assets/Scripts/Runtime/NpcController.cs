@@ -10,6 +10,7 @@ public class NpcController : MonoBehaviour
     [SerializeField] private TMP_Text label; // optional, you can remove later
     [SerializeField] private NpcMaskRenderer maskRenderer;
     [SerializeField] private FaceMaskRenderer faceRenderer;
+
     private void Awake()
     {
         if (label == null) label = GetComponentInChildren<TMP_Text>();
