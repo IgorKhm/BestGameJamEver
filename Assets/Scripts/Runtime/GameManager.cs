@@ -83,25 +83,35 @@ public class GameManager : MonoBehaviour
     private void StartLevel(int idx)
     {
         _levelIndex = idx;
-        _capacity = 0;
 
-        _rule = PartyRuleGenerator.Generate(allFeatures, CurrentLevel.relevantFeatureCount);
+        // --- HARD RESET OF SCENE STATE ---
+        ShowBuilder(false);        // close builder
+        LockBuilder(false);        // unlock (in case we were mid-line)
 
         _state = GameState.Observing;
         _timer = 0f;
+        _moveDuration = 0f;
 
-        // Reset player mask to something (optional). Keep current selections for now.
-        // _playerMask.EnsureAllFeatures(allFeatures);
-
-        IsRunning = true;
-        
         if (playerTransform != null && playerStartPoint != null)
         {
             var p = playerStartPoint.position;
             p.z = 0f;
             playerTransform.position = p;
         }
+
+        if (npcSpawner != null)
+        {
+            npcSpawner.ClearAllNpcs(); // clears all existing NPC instances
+            npcSpawner.ResetSpawner(); // resets spawn accumulator
+        }
+        // --- END RESET ---
+
+        _capacity = 0;
+        _rule = PartyRuleGenerator.Generate(allFeatures, CurrentLevel.relevantFeatureCount);
+
+        IsRunning = true;
     }
+
 
     public void OnNpcReachedDoor(NpcController npc)
     {
@@ -175,7 +185,6 @@ public class GameManager : MonoBehaviour
         {
             // rejection: walk back
             _state = GameState.WalkingBack;
-            _timer = CurrentLevel.walkBackTime;_state = GameState.WalkingBack;
 
             _timer = CurrentLevel.walkBackTime;
             _moveDuration = CurrentLevel.walkBackTime;
@@ -185,7 +194,6 @@ public class GameManager : MonoBehaviour
 
             _moveFrom.z = 0f;
             _moveTo.z = 0f;
-
         }
     }
 

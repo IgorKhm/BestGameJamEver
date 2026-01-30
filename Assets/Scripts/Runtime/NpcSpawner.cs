@@ -7,6 +7,7 @@ public class NpcSpawner : MonoBehaviour
     public Transform topSpawnPoint, bottomSpawnPoint;
     public GameObject npcPrefab;
     private BoxCollider2D npcCollider;
+    public Transform npcParent;
 
     [SerializeField] private float _spawnFrequency;
 
@@ -27,7 +28,12 @@ public class NpcSpawner : MonoBehaviour
             SpawnNpc();
         }
     }
-
+  
+    public void ResetSpawner()
+    {
+        _spawnFrequency = 0f;
+    }
+    
     private void SpawnNpc()
     {
         bool accepted = Random.value >= gameManager.CurrentLevel.rejectNpcChance;
@@ -36,7 +42,7 @@ public class NpcSpawner : MonoBehaviour
 
 
         var spawnPoint = GetNpcSpawnerLocation();
-        var go = Instantiate(npcPrefab, spawnPoint, Quaternion.identity);
+        var go = Instantiate(npcPrefab, spawnPoint, Quaternion.identity,npcParent);
         var npc = go.GetComponent<NpcController>();
         float despawnX = spawnPoint.x - gameManager.CurrentLevel.leftDespawnOffset;
         float npcRandomMoveSpeed = Random.Range(gameManager.CurrentLevel.npcMoveMinSpeed, gameManager.CurrentLevel.npcMoveMaxSpeed);
@@ -53,6 +59,14 @@ public class NpcSpawner : MonoBehaviour
             gameManager.CurrentLevel.rejectedSpeedMultiplier
         );
     }
+    
+    public void ClearAllNpcs()
+    {
+        if (npcParent == null) return;
+        for (int i = npcParent.childCount - 1; i >= 0; i--)
+            Destroy(npcParent.GetChild(i).gameObject);
+    }
+
 
     private Vector3 GetNpcSpawnerLocation()
     {
