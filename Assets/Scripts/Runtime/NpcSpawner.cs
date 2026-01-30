@@ -29,7 +29,7 @@ public class NpcSpawner : MonoBehaviour
         var go = Instantiate(npcPrefab, spawnPoint.position, Quaternion.identity);
         var npc = go.GetComponent<NpcController>();
 
-        string dbg = gameManager.BuildMaskDebugString(mask);
+        string dbg = gameManager.BuildMaskDebugString(mask, showAll: true);
         npc.Init(gameManager.CurrentLevel.npcMoveSpeed, mask, true, dbg);
-        }
+    }
 }
