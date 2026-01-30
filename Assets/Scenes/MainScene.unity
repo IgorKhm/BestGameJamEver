@@ -2256,10 +2256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build
-
-
-'
+  m_text: Build
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3317,6 +3314,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 983099502}
+    - target: {fileID: 3430220557291925538, guid: 6d30ebf82f41cb54fbcf0ab944c34663, type: 3}
+      propertyPath: _spawnFrequency
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6862249134955597232, guid: 6d30ebf82f41cb54fbcf0ab944c34663, type: 3}
       propertyPath: m_Name
       value: NpcSpawner
