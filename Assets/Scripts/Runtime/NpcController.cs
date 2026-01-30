@@ -6,6 +6,11 @@ public class NpcController : MonoBehaviour
     public float moveSpeed = 2f;
     public MaskData mask;
     public bool isAccepted = true;
+    
+    private int _dir = 1;                 // +1 right, -1 left
+    private bool _processedDoor = false;
+    private float _despawnX;
+    private float _rejectedSpeedMult;
 
     [SerializeField] private TMP_Text label; // optional, you can remove later
     [SerializeField] private NpcMaskRenderer maskRenderer;
@@ -18,24 +23,44 @@ public class NpcController : MonoBehaviour
         
     }
 
-    public void Init(float speed, MaskData m, bool accepted, string debugText)
+    public void Init(float speed, MaskData m, bool accepted, 
+        string debugText, float despawnX, float rejectedSpeedMult)
     {
         moveSpeed = speed;
         mask = m;
         isAccepted = accepted;
 
-        // TEXT (optional) — you can disable this later
-        if (label != null) label.text = debugText;
+        _dir = 1;
+        _processedDoor = false;
+        _despawnX = despawnX;
 
-        // GRAPHICS
-        // if (maskRenderer != null) maskRenderer.Apply(m);
-        
+        // if you want rejected to walk faster/slower after door:
+        _rejectedSpeedMult = rejectedSpeedMult;
+
+        // apply visuals here (you already do this)
         if (faceRenderer != null) faceRenderer.Apply(m);
-        
+        if (label != null) label.text = debugText;
+    }
+    
+    public bool TryMarkDoorProcessed()
+    {
+        if (_processedDoor) return false;
+        _processedDoor = true;
+        return true;
+    }
+
+    public void RejectAndExitLeft()
+    {
+        _dir = -1;
+        moveSpeed *= _rejectedSpeedMult;
     }
 
     private void Update()
     {
-        transform.position += Vector3.right * (moveSpeed * Time.deltaTime);
+        transform.position += Vector3.right * (_dir * moveSpeed * Time.deltaTime);
+
+        // despawn when exiting left
+        if (_dir < 0 && transform.position.x < _despawnX)
+            Destroy(gameObject);
     }
 }

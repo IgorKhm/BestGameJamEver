@@ -24,20 +24,34 @@ public class NpcSpawner : MonoBehaviour
         if (_spawnFrequency >= gameManager.CurrentLevel.npcDoorInterval)
         {
             _spawnFrequency = 0f;
-            CreateNpcLevel1();
+            SpawnNpc();
         }
     }
 
-    private void CreateNpcLevel1()
+    private void SpawnNpc()
     {
-        MaskData mask = gameManager.CreateNpcMask(accepted: true);
+        bool accepted = Random.value >= gameManager.CurrentLevel.rejectNpcChance;
 
-        var go = Instantiate(npcPrefab, GetNpcSpawnerLocation(), Quaternion.identity);
+        var mask = gameManager.CreateNpcMask(accepted);
+
+
+        var spawnPoint = GetNpcSpawnerLocation();
+        var go = Instantiate(npcPrefab, spawnPoint, Quaternion.identity);
         var npc = go.GetComponent<NpcController>();
-
-        string dbg = gameManager.BuildMaskDebugString(mask, showAll: true);
+        float despawnX = spawnPoint.x - gameManager.CurrentLevel.leftDespawnOffset;
         float npcRandomMoveSpeed = Random.Range(gameManager.CurrentLevel.npcMoveMinSpeed, gameManager.CurrentLevel.npcMoveMaxSpeed);
-        npc.Init(npcRandomMoveSpeed, mask, true, dbg);
+
+        string dbg = ""; // optional: show relevant features for debugging
+        // string dbg = gameManager.BuildMaskDebugString(mask);
+
+        npc.Init(
+            npcRandomMoveSpeed,
+            mask,
+            accepted,
+            dbg,
+            despawnX,
+            gameManager.CurrentLevel.rejectedSpeedMultiplier
+        );
     }
 
     private Vector3 GetNpcSpawnerLocation()

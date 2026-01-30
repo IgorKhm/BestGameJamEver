@@ -8,9 +8,6 @@ public class DoorTrigger : MonoBehaviour
     {
         var npc = other.GetComponent<NpcController>();
         if (npc != null)
-        {
             gameManager.OnNpcReachedDoor(npc);
-            Destroy(npc.gameObject);
-        }
     }
 }

@@ -2065,6 +2065,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c53a6c12076f484fbfa17aab4cde521, type: 2}
   levels:
   - {fileID: 11400000, guid: 459fd03c783274c4491e3be1ef7074d9, type: 2}
+  - {fileID: 11400000, guid: 4ca1717f00e0d284480d1c8515cfb4ae, type: 2}
   startLevelIndex: 0
   capacityText: {fileID: 399990865}
   builderPanel: {fileID: 767553662}

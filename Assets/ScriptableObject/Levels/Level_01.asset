@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Level_01
   m_EditorClassIdentifier: 
   relevantFeatureCount: 2
-  maxCapacity: 20
+  maxCapacity: 2000
   npcDoorInterval: 0.2
-  npcMoveSpeed: 2
+  npcMoveMinSpeed: 1
+  npcMoveMaxSpeed: 1.8
   forwardWalkTime: 6
   walkBackTime: 4
+  rejectNpcChance: 0
+  leftDespawnOffset: 5
+  rejectedSpeedMultiplier: 1

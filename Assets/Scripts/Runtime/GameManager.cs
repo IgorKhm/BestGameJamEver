@@ -105,10 +105,17 @@ public class GameManager : MonoBehaviour
 
     public void OnNpcReachedDoor(NpcController npc)
     {
-        // Level 1: always accepted NPCs (for now)
+        if (npc == null) return;
+        if (!npc.TryMarkDoorProcessed()) return;
+
         if (npc.isAccepted)
         {
             _capacity++;
+            Destroy(npc.gameObject);
+        }
+        else
+        {
+            npc.RejectAndExitLeft(); // will walk left and self-destroy past despawnX
         }
     }
 
@@ -184,6 +191,7 @@ public class GameManager : MonoBehaviour
 
     private bool DoesMaskMatchRule(MaskData mask, PartyRule rule)
     {
+        // return true;
         foreach (var f in rule.relevantFeatures)
         {
             int need = rule.requiredVariantIndex[f];
@@ -221,7 +229,7 @@ public class GameManager : MonoBehaviour
         var m = new MaskData();
         m.EnsureAllFeatures(allFeatures);
 
-        // irrelevant random first
+        // randomize everything first
         foreach (var c in m.choices)
         {
             int count = c.feature.variants.Count;
@@ -232,8 +240,25 @@ public class GameManager : MonoBehaviour
         {
             // force relevant to required
             foreach (var f in _rule.relevantFeatures)
-            {
                 m.SetVariantIndex(f, _rule.requiredVariantIndex[f]);
+        }
+        else
+        {
+            // force at least ONE relevant feature to mismatch (guaranteed wrong)
+            if (_rule.relevantFeatures.Count > 0)
+            {
+                var f = _rule.relevantFeatures[Random.Range(0, _rule.relevantFeatures.Count)];
+                int required = _rule.requiredVariantIndex[f];
+                int count = f.variants.Count;
+
+                if (count > 1)
+                {
+                    int different = required;
+                    while (different == required)
+                        different = Random.Range(0, count);
+
+                    m.SetVariantIndex(f, different);
+                }
             }
         }
 
