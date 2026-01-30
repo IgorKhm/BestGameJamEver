@@ -16,6 +16,3 @@ MonoBehaviour:
   displayName: Face
   variants:
   - {fileID: 11400000, guid: ffead7657bb5e3448b1adecd3404d2f6, type: 2}
-  - {fileID: 11400000, guid: a5a10cd7b5a11ad498ac73e6c1c9e1da, type: 2}
-  - {fileID: 11400000, guid: 75d56855565094045990ee114d8bbeba, type: 2}
-  - {fileID: 11400000, guid: 92ed20674b1ae3a48b993214273dc360, type: 2}

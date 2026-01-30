@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Var_Ears_01
   m_EditorClassIdentifier: 
   variantId: ear_01
-  sprite: {fileID: 0}
+  sprite: {fileID: -3376502221147711708, guid: b1b46a2f806332f429163d347b2c8b26, type: 3}
   placeholderColor: {r: 0.8113208, g: 0.7877765, b: 0.08419358, a: 1}
