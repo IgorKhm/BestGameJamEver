@@ -9,7 +9,7 @@ public class NpcSpawner : MonoBehaviour
     private BoxCollider2D npcCollider;
     public Transform npcParent;
 
-    [SerializeField] private float _spawnFrequency;
+    private float _spawnFrequency;
 
     private void Awake()
     {

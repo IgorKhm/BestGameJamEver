@@ -186,7 +186,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.41440582, y: -2.5663278}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -196,7 +196,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.5456204, y: 3.3490422}
   m_EdgeRadius: 0
 --- !u!114 &1547142541525180899
 MonoBehaviour:
@@ -243,8 +243,8 @@ Transform:
   m_GameObject: {fileID: 4454595557138152357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: -1.26, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2469665707325191321}
@@ -293,8 +293,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -6199720543617963891, guid: 9b9630e6bfafab64a99338956ab390b3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 1034614472090527040}
   - component: {fileID: 3057971391234012147}
   m_Layer: 0
-  m_Name: BaseMask
+  m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,12 +993,12 @@ Transform:
   m_GameObject: {fileID: 8913673765258224554}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3721037, y: 0.11967099, z: 0}
+  m_LocalPosition: {x: 1.78, y: 0.11967099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8682446491820956898}
   - {fileID: 1034614472090527040}
+  - {fileID: 8682446491820956898}
   - {fileID: 3771658260849281941}
   - {fileID: 8141211026489606239}
   - {fileID: 6752842488231179741}
@@ -1018,6 +1018,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
+  - featureId: Face
+    renderer: {fileID: 3057971391234012147}
+    orderInLayer: 1
   - featureId: ears
     renderer: {fileID: 3434307510816759617}
     orderInLayer: 2
