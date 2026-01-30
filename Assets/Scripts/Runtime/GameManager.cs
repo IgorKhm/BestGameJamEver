@@ -38,6 +38,16 @@ public class GameManager : MonoBehaviour
     private MaskData _playerMask = new();
     private GameState _state = GameState.Observing;
     private float _timer;
+    
+    [Header("Player Movement (World)")]
+    public Transform playerTransform;
+    public Transform playerStartPoint;
+    public Transform doorQueuePoint;
+
+    private Vector3 _moveFrom;
+    private Vector3 _moveTo;
+    private float _moveDuration;
+
 
     private void Start()
     {
@@ -84,6 +94,13 @@ public class GameManager : MonoBehaviour
         // _playerMask.EnsureAllFeatures(allFeatures);
 
         IsRunning = true;
+        
+        if (playerTransform != null && playerStartPoint != null)
+        {
+            var p = playerStartPoint.position;
+            p.z = 0f;
+            playerTransform.position = p;
+        }
     }
 
     public void OnNpcReachedDoor(NpcController npc)
@@ -102,7 +119,15 @@ public class GameManager : MonoBehaviour
 
         LockBuilder(true);
         _state = GameState.InLineForward;
+
         _timer = CurrentLevel.forwardWalkTime;
+        _moveDuration = CurrentLevel.forwardWalkTime;
+
+        _moveFrom = playerTransform != null ? playerTransform.position : Vector3.zero;
+        _moveTo = doorQueuePoint != null ? doorQueuePoint.position : _moveFrom;
+
+        _moveFrom.z = 0f;
+        _moveTo.z = 0f;
     }
 
     private void OnTimerDone()
@@ -116,6 +141,12 @@ public class GameManager : MonoBehaviour
             // back to observing / editing
             _state = GameState.Observing;
             LockBuilder(false);
+            if (playerTransform != null && playerStartPoint != null)
+            {
+                var p = playerStartPoint.position; p.z = 0f;
+                playerTransform.position = p;
+            }
+
         }
     }
 
@@ -137,7 +168,17 @@ public class GameManager : MonoBehaviour
         {
             // rejection: walk back
             _state = GameState.WalkingBack;
+            _timer = CurrentLevel.walkBackTime;_state = GameState.WalkingBack;
+
             _timer = CurrentLevel.walkBackTime;
+            _moveDuration = CurrentLevel.walkBackTime;
+
+            _moveFrom = playerTransform != null ? playerTransform.position : Vector3.zero;
+            _moveTo = playerStartPoint != null ? playerStartPoint.position : _moveFrom;
+
+            _moveFrom.z = 0f;
+            _moveTo.z = 0f;
+
         }
     }
 
@@ -236,7 +277,27 @@ public class GameManager : MonoBehaviour
 
         if (stateText != null)
             stateText.text = $"State: {_state}";
+        
+        UpdatePlayerMovement();
+
     }
+    
+    private void UpdatePlayerMovement()
+    {
+        if (playerTransform == null) return;
+
+        if (_state == GameState.InLineForward && _moveDuration > 0f)
+        {
+            float t = 1f - Mathf.Clamp01(_timer / _moveDuration);
+            playerTransform.position = Vector3.Lerp(_moveFrom, _moveTo, t);
+        }
+        else if (_state == GameState.WalkingBack && _moveDuration > 0f)
+        {
+            float t = 1f - Mathf.Clamp01(_timer / _moveDuration);
+            playerTransform.position = Vector3.Lerp(_moveFrom, _moveTo, t);
+        }
+    }
+
 
     public void ShowBuilder(bool show)
     {

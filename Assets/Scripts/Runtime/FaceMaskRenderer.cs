@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcFaceMaskRenderer : MonoBehaviour
+public class FaceMaskRenderer : MonoBehaviour
 {
     [Serializable]
     public class FeatureSlot
