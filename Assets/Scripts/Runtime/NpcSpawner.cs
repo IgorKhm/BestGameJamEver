@@ -30,14 +30,13 @@ public class NpcSpawner : MonoBehaviour
 
     private void CreateNpcLevel1()
     {
-        // Level 1: everyone accepted; relevant features always identical to rule.
         MaskData mask = gameManager.CreateNpcMask(accepted: true);
 
         var go = Instantiate(npcPrefab, GetNpcSpawnerLocation(), Quaternion.identity);
         var npc = go.GetComponent<NpcController>();
 
-        string dbg = gameManager.BuildMaskDebugString(mask);
-        float npcRandomMoveSpeed = Random.Range(gameManager.CurrentLevel.npcMoveMinSpeed, gameManager.CurrentLevel.npcMoveMaxSpeed); 
+        string dbg = gameManager.BuildMaskDebugString(mask, showAll: true);
+        float npcRandomMoveSpeed = Random.Range(gameManager.CurrentLevel.npcMoveMinSpeed, gameManager.CurrentLevel.npcMoveMaxSpeed);
         npc.Init(npcRandomMoveSpeed, mask, true, dbg);
     }
 
