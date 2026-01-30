@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private int _levelIndex;
     private int _capacity;
     private PartyRule _rule;
+    
     private MaskData _playerMask = new();
     private GameState _state = GameState.Observing;
     private float _timer;
