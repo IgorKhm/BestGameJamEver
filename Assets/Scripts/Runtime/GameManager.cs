@@ -47,17 +47,25 @@ public class GameManager : MonoBehaviour
     private Vector3 _moveFrom;
     private Vector3 _moveTo;
     private float _moveDuration;
+    
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject gameplayUIPanel;
 
 
     private void Start()
     {
+        IsRunning = false;   // wait for Play button
+    }
+    
+    public void StartGame()
+    {
         _levelIndex = Mathf.Clamp(startLevelIndex, 0, levels.Count - 1);
-
         _playerMask.EnsureAllFeatures(allFeatures);
         StartLevel(_levelIndex);
-
         IsRunning = true;
     }
+    
+
 
     private void Update()
     {
@@ -199,7 +207,7 @@ public class GameManager : MonoBehaviour
 
     private bool DoesMaskMatchRule(MaskData mask, PartyRule rule)
     {
-        // return true;
+        return true;
         foreach (var f in rule.relevantFeatures)
         {
             int need = rule.requiredVariantIndex[f];
@@ -214,20 +222,22 @@ public class GameManager : MonoBehaviour
         _state = GameState.LevelComplete;
 
         int next = _levelIndex + 1;
+
         if (next >= levels.Count)
         {
-            // loop or stop; for MVP loop
-            next = 0;
+            IsRunning = false;
+            FindObjectOfType<GameCycle>()?.WinGame();
+            return;
         }
 
         StartLevel(next);
     }
 
+
     private void FailLevel()
     {
-        _state = GameState.LevelFailed;
-        // restart same level
-        StartLevel(_levelIndex);
+        IsRunning = false;
+        FindObjectOfType<GameCycle>()?.LoseGame();
     }
 
     public MaskData GetPlayerMask() => _playerMask;

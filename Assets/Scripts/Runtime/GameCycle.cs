@@ -1,61 +1,99 @@
 using System;
-using UnityEngine;
 using TMPro;
-using System.Collections;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameCycle : MonoBehaviour
 {
-    [Tooltip("Normal speed is 1")]
-    [SerializeField] private float GameSpeed = 1;
-    [SerializeField] private float menuDurationBeforeRestartInSec = 10;
-    private enum GameStatus { win, lose }
-   
-    [SerializeField] private TextMeshProUGUI conclusionText;
-    [SerializeField] private string winText = "You entered the cult";
-    [SerializeField] private string loseText = "You got rejected, you suck!";
+    public static GameCycle Instance { get; private set; }
 
-    [SerializeField] private Image conclusionImage;
-    private Sprite winSprite, loseSprite;
-    
+    [Header("Panels")]
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+
+    [Header("Optional UI Text")]
+    [SerializeField] private TextMeshProUGUI winTextUI;
+    [SerializeField] private TextMeshProUGUI loseTextUI;
+
+    [SerializeField] private string winText = "You entered the party!";
+    [SerializeField] private string loseText = "Rejected!";
+
+    [Header("Time")]
+    [Tooltip("Normal speed is 1")]
+    [SerializeField] private float gameplayTimeScale = 1f;
+
     public Action OnRoundWon;
     public Action OnRoundLost;
-    
+
     private void Awake()
     {
-        Time.timeScale = GameSpeed;
+        // Singleton guard (important because you reload the scene)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += (_, __) => ShowStart(); // after restart
+
+        ShowStart();
+    }
+
+    private void ShowOnly(GameObject panel)
+    {
+        if (startPanel != null) startPanel.SetActive(panel == startPanel);
+        if (winPanel != null) winPanel.SetActive(panel == winPanel);
+        if (losePanel != null) losePanel.SetActive(panel == losePanel);
+    }
+
+    public void ShowStart()
+    {
+        Time.timeScale = 0f;          // pause until Play
+        ShowOnly(startPanel);
+    }
+
+    public void StartPressed()
+    {
+        // Hide all menu panels and run the game
+        Time.timeScale = gameplayTimeScale;
+        if (startPanel != null) startPanel.SetActive(false);
+        if (winPanel != null) winPanel.SetActive(false);
+        if (losePanel != null) losePanel.SetActive(false);
+
+        FindObjectOfType<GameManager>()?.StartGame();
     }
 
     public void WinGame()
     {
-        StartCoroutine(ConcludeGame(GameStatus.win));
+        Time.timeScale = 0f;
+        if (winTextUI != null) winTextUI.text = winText;
+        ShowOnly(winPanel);
+        OnRoundWon?.Invoke();
     }
 
     public void LoseGame()
     {
-        StartCoroutine(ConcludeGame(GameStatus.lose));
+        Time.timeScale = 0f;
+        if (loseTextUI != null) loseTextUI.text = loseText;
+        ShowOnly(losePanel);
+        OnRoundLost?.Invoke();
     }
 
-    private IEnumerator ConcludeGame(GameStatus gameStatus)
+    public void RestartGame()
     {
-        switch (gameStatus)
-        {
-            case GameStatus.win:
-                conclusionText.text = winText;
-                conclusionImage.sprite = winSprite;
-                OnRoundWon.Invoke();
-                break;
-            case GameStatus.lose:
-                conclusionText.text = loseText;
-                conclusionImage.sprite = loseSprite;
-                OnRoundLost.Invoke();
-                break;
-            default:
-                break;
-        }
-
-        yield return new WaitForSeconds(menuDurationBeforeRestartInSec);
+        Time.timeScale = gameplayTimeScale;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // ShowStart() will be called by sceneLoaded handler
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
