@@ -198,15 +198,21 @@ public class GameManager : MonoBehaviour
         return m;
     }
 
-    public string BuildMaskDebugString(MaskData m)
+    public string BuildMaskDebugString(MaskData m, bool showAll = false)
     {
-        // short debug: show only relevant features so inference is visible
-        string s = "";
-        foreach (var f in _rule.relevantFeatures)
+        if (showAll)
         {
-            s += $"{f.displayName}:{m.GetVariantIndex(f) + 1} ";
+            string s = "";
+            foreach (var c in m.choices)
+                s += $"{c.feature.featureId}:{c.variantIndex + 1}\n";
+            return s.TrimEnd();
         }
-        return s.Trim();
+
+        // default: only relevant
+        string r = "";
+        foreach (var f in _rule.relevantFeatures)
+            r += $"{f.featureId}:{m.GetVariantIndex(f) + 1}\n";
+        return r.TrimEnd();
     }
 
     private void LockBuilder(bool locked)
