@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Chin_02
   m_EditorClassIdentifier: 
-  variantId: Var_002_Ears_Side
+  variantId: Mask_2_Chin
   sprite: {fileID: 7205986512149914658, guid: 1f023fdef16310342a1a331f140f4566, type: 3}
   placeholderColor: {r: 0.08235292, g: 0.23834617, b: 0.8117647, a: 1}

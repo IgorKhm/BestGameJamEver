@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Nose_01
   m_EditorClassIdentifier: 
-  variantId: nose_01
-  sprite: {fileID: -7802926321158468092, guid: 075032fbd0566df4380483f08d406dbe, type: 3}
+  variantId: Mask_01_Nose
+  sprite: {fileID: 960109999685862348, guid: 72570314784955b4ca26a34174773e1e, type: 3}
   placeholderColor: {r: 0.8113208, g: 0.7877765, b: 0.08419358, a: 1}
