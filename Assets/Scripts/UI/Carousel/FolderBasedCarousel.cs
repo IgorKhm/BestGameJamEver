@@ -21,6 +21,9 @@ public class FolderBasedCarousel : MonoBehaviour
     [Tooltip("The Image in MaskView that should also update (e.g., Nose_Feature's image)")]
     public Image maskViewImage;
     
+    [Tooltip("Mirrored Image in MaskView (for eyes, ears, etc.) - leave empty if not needed")]
+    public Image maskViewMirrorImage;
+    
     [Tooltip("If true, calls SetNativeSize on MaskView image. If false, keeps current size.")]
     public bool maskViewUseNativeSize = true;
     
@@ -86,6 +89,14 @@ public class FolderBasedCarousel : MonoBehaviour
             maskViewImage.sprite = current;
             if (maskViewUseNativeSize)
                 maskViewImage.SetNativeSize();
+        }
+        
+        // Update MaskView mirror image (if assigned)
+        if (maskViewMirrorImage != null)
+        {
+            maskViewMirrorImage.sprite = current;
+            if (maskViewUseNativeSize)
+                maskViewMirrorImage.SetNativeSize();
         }
         
         onSpriteChanged?.Invoke(currentIndex);

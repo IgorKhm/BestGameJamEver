@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
-/// Simple carousel with delayed display change.
+/// Carousel for MaskView with delayed display change.
 /// </summary>
-public class SimpleCarousel : MonoBehaviour
+public class MaskViewerCarousel : MonoBehaviour
 {
     [Header("Items to cycle through")]
     public GameObject[] items;
