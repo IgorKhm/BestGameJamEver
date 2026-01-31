@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 8e90b70a2939c4ccca3d778215da756c
+guid: e168cef830bdd4910aa1835bed0e4de7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4345969783488715786
-    second: Mask_01_Nose_0
+      213: 2910179318620797015
+    second: UI_MenuButtons 1_0
+  - first:
+      213: -6117557619276909858
+    second: UI_MenuButtons 1_1
+  - first:
+      213: -1975519810677844127
+    second: UI_MenuButtons 1_2
+  - first:
+      213: 5422210598981902170
+    second: UI_MenuButtons 1_3
+  - first:
+      213: -133342342356006579
+    second: UI_MenuButtons 1_4
+  - first:
+      213: 8428422785188382855
+    second: UI_MenuButtons 1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mask_01_Nose_0
+      name: UI_MenuButtons 1_0
       rect:
         serializedVersion: 2
-        x: 430
-        y: 320
-        width: 220
-        height: 309
+        x: 66
+        y: 330
+        width: 280
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +156,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0c1d6dfd7cff4c30800000000000000
-      internalID: 4345969783488715786
+      spriteID: 758b417eba8036820800000000000000
+      internalID: 2910179318620797015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons 1_1
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 344
+        width: 337
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2f30ae1c11a1ba0800000000000000
+      internalID: -6117557619276909858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons 1_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 194
+        width: 280
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167dccde23b8594e0800000000000000
+      internalID: -1975519810677844127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons 1_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 199
+        width: 223
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f9ca9cfcf8f3b40800000000000000
+      internalID: 5422210598981902170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons 1_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 42
+        width: 337
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d490a5a98d5462ef0800000000000000
+      internalID: -133342342356006579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MenuButtons 1_5
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 63
+        width: 223
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78846ff0ed5c7f470800000000000000
+      internalID: 8428422785188382855
       vertices: []
       indices: 
       edges: []
@@ -151,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mask_01_Nose_0: 4345969783488715786
+      UI_MenuButtons 1_0: 2910179318620797015
+      UI_MenuButtons 1_1: -6117557619276909858
+      UI_MenuButtons 1_2: -1975519810677844127
+      UI_MenuButtons 1_3: 5422210598981902170
+      UI_MenuButtons 1_4: -133342342356006579
+      UI_MenuButtons 1_5: 8428422785188382855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
