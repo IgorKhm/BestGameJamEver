@@ -39,8 +39,10 @@ public class NpcMaskRenderer : MonoBehaviour
             go.transform.localScale = Vector3.one * iconScale;
 
             var sr = go.AddComponent<SpriteRenderer>();
-            sr.sortingLayerName = sortingLayerName;
-            sr.sortingOrder = baseOrderInLayer + i;
+            sr.transform.localPosition = new Vector3(sr.transform.localPosition.x, sr.transform.localPosition.y,
+                baseOrderInLayer + i);
+            // sr.sortingLayerName = sortingLayerName;
+            // sr.sortingOrder = baseOrderInLayer + i;
 
             _icons.Add(sr);
         }

@@ -54,6 +54,7 @@ public class NpcController : MonoBehaviour
         _dir = -1;
         moveSpeed *= _rejectedSpeedMult;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     private void Update()

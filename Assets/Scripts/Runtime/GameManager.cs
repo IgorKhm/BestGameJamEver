@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Wiring")] public NpcSpawner npcSpawner;
 
+
+    public Transform wayBackPosition;
     // Runtime
     public bool IsRunning { get; private set; }
     public LevelConfig CurrentLevel => levels[_levelIndex];
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
         else
         {
             npc.RejectAndExitLeft(); // will walk left and self-destroy past despawnX
+            npc.transform.position = wayBackPosition.position;
         }
     }
 
