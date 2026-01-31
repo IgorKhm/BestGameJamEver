@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Nose_01
   m_EditorClassIdentifier: 
-  variantId: mouth_01
+  variantId: nose_01
   sprite: {fileID: -1175496214881705132, guid: d3d4bd67ed702a64f989cb5ef241de90, type: 3}
   placeholderColor: {r: 0.8113208, g: 0.7877765, b: 0.08419358, a: 1}
