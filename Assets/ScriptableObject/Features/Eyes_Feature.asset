@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Eyes
   variants:
   - {fileID: 11400000, guid: 88fce2e19ce2bfc4087eed23ea595438, type: 2}
-  - {fileID: 11400000, guid: 88fce2e19ce2bfc4087eed23ea595438, type: 2}
+  - {fileID: 11400000, guid: ea2be9b3f4bc37543be89180718ab79f, type: 2}
