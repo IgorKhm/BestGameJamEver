@@ -359,6 +359,16 @@ public class GameManager : MonoBehaviour
 
     public void ShowBuilder(bool show)
     {
-        if (builderPanel != null) builderPanel.SetActive(show);
+       
+        if (builderPanel == null) return;
+
+        builderPanel.SetActive(show);
+        
+        LockBuilder(false);
+
+
+        // If you want to force children too (even if some were manually disabled)
+        foreach (Transform child in builderPanel.transform)
+            child.gameObject.SetActive(show);
     }
 }
