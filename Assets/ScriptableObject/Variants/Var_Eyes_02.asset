@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Eyes_02
   m_EditorClassIdentifier: 
-  variantId: nan
+  variantId: Mask_2_Eyes
   sprite: {fileID: 6524831385240031525, guid: 9fddb2b93c7e23548b8c239f0602edba, type: 3}
   placeholderColor: {r: 0.043137252, g: 0.16196571, b: 0.90588236, a: 1}

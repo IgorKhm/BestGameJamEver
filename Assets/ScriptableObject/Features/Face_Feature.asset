@@ -15,4 +15,5 @@ MonoBehaviour:
   featureId: face
   displayName: Face
   variants:
-  - {fileID: 11400000, guid: ffead7657bb5e3448b1adecd3404d2f6, type: 2}
+  - {fileID: 11400000, guid: a5a10cd7b5a11ad498ac73e6c1c9e1da, type: 2}
+  - {fileID: 11400000, guid: 18715217d5582f442a551326ce2f6928, type: 2}

@@ -16,3 +16,5 @@ MonoBehaviour:
   displayName: Horns
   variants:
   - {fileID: 11400000, guid: c4f72632cdbe5c344aa285acf13c8845, type: 2}
+  - {fileID: 11400000, guid: 19aef0562dacd844d9c14a34887a07b2, type: 2}
+  - {fileID: 11400000, guid: 02165723608f4ea4d930e095c7ec2949, type: 2}

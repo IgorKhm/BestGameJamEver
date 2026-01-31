@@ -16,8 +16,8 @@ MonoBehaviour:
   numberOfCorrectFeaturesToPass: 1
   maxCapacity: 10
   npcDoorInterval: 2
-  npcMoveMinSpeed: 2
-  npcMoveMaxSpeed: 3
+  npcMoveMinSpeed: 1
+  npcMoveMaxSpeed: 2
   forwardWalkTime: 6
   walkBackTime: 4
   rejectNpcChance: 0.348
