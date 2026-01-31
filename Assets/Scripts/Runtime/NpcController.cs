@@ -6,8 +6,8 @@ public class NpcController : MonoBehaviour
     public float moveSpeed = 2f;
     public MaskData mask;
     public bool isAccepted = true;
-    
-    private int _dir = 1;                 // +1 right, -1 left
+
+    private int _dir = 1; // +1 right, -1 left
     private bool _processedDoor = false;
     private float _despawnX;
     private float _rejectedSpeedMult;
@@ -15,15 +15,15 @@ public class NpcController : MonoBehaviour
     [SerializeField] private TMP_Text label; // optional, you can remove later
     [SerializeField] private NpcMaskRenderer maskRenderer;
     [SerializeField] private FaceMaskRenderer faceRenderer;
+
     private void Awake()
     {
         if (label == null) label = GetComponentInChildren<TMP_Text>();
         if (maskRenderer == null) maskRenderer = GetComponentInChildren<NpcMaskRenderer>();
         if (faceRenderer == null) faceRenderer = GetComponentInChildren<FaceMaskRenderer>();
-        
     }
 
-    public void Init(float speed, MaskData m, bool accepted, 
+    public void Init(float speed, MaskData m, bool accepted,
         string debugText, float despawnX, float rejectedSpeedMult)
     {
         moveSpeed = speed;
@@ -41,7 +41,7 @@ public class NpcController : MonoBehaviour
         if (faceRenderer != null) faceRenderer.Apply(m);
         if (label != null) label.text = debugText;
     }
-    
+
     public bool TryMarkDoorProcessed()
     {
         if (_processedDoor) return false;
@@ -53,6 +53,7 @@ public class NpcController : MonoBehaviour
     {
         _dir = -1;
         moveSpeed *= _rejectedSpeedMult;
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
     private void Update()

@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private Vector3 _moveFrom;
     private Vector3 _moveTo;
     private float _moveDuration;
+    private Vector3 plaerScaleForward;
 
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject gameplayUIPanel;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         IsRunning = false; // wait for Play button
+        plaerScaleForward = playerTransform.localScale;
     }
 
     public void StartGame()
@@ -144,6 +146,8 @@ public class GameManager : MonoBehaviour
         LockBuilder(true);
         _state = GameState.InLineForward;
 
+        playerTransform.localScale = plaerScaleForward;
+
         _timer = CurrentLevel.forwardWalkTime;
         _moveDuration = CurrentLevel.forwardWalkTime;
 
@@ -195,6 +199,7 @@ public class GameManager : MonoBehaviour
 
             _timer = CurrentLevel.walkBackTime;
             _moveDuration = CurrentLevel.walkBackTime;
+            playerTransform.localScale = new Vector3(-plaerScaleForward.x, playerTransform.localScale.y, playerTransform.localScale.z);
 
             _moveFrom = playerTransform != null ? playerTransform.position : Vector3.zero;
             _moveTo = playerStartPoint != null ? playerStartPoint.position : _moveFrom;
