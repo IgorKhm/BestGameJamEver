@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Level_01
   m_EditorClassIdentifier: 
   relevantFeatureCount: 2
-  numberOfCorrectFeaturesToPass: 10
+  numberOfCorrectFeaturesToPass: 1
   maxCapacity: 10
   npcDoorInterval: 2
   npcMoveMinSpeed: 2
   npcMoveMaxSpeed: 3
   forwardWalkTime: 6
   walkBackTime: 4
-  rejectNpcChance: 1
+  rejectNpcChance: 0.348
   leftDespawnOffset: 5
   rejectedSpeedMultiplier: 1
