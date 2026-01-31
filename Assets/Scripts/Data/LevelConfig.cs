@@ -5,6 +5,7 @@ public class LevelConfig : ScriptableObject
 {
     [Header("Rule")]
     [Range(1, 10)] public int relevantFeatureCount = 2;
+    [Range(0, 10)] public int numberOfCorrectFeaturesToPass = 2;
 
     [Header("Club")]
     public int maxCapacity = 20;

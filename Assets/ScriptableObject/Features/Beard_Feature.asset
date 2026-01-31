@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a883938d9dd1148a8b81a561c12b1f, type: 3}
   m_Name: Beard_Feature
   m_EditorClassIdentifier: 
-  featureId: Nose
-  displayName: nose
+  featureId: beard
+  displayName: Beard
   variants:
-  - {fileID: 11400000, guid: 66919db602a41a84bbe14d9824347af4, type: 2}
-  - {fileID: 11400000, guid: c90639e5935879b4c8c179500df6fc2a, type: 2}
+  - {fileID: 11400000, guid: f726e89698871964bb35086876cb58ee, type: 2}

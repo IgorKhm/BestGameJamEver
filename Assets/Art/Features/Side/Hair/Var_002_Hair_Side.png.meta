@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: d3d4bd67ed702a64f989cb5ef241de90
+guid: 15070fab8fa7be740b0740fc238a0c1f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1175496214881705132
-    second: Var_Nose_005_0
-  - first:
-      213: 8821769632974406812
-    second: Var_Nose_005_1
-  - first:
-      213: 4306599373794788839
-    second: Var_Nose_005_2
+      213: -2064653419784146554
+    second: Var_002_Hair_Side_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Var_Nose_005_0
+      name: Var_002_Hair_Side_0
       rect:
         serializedVersion: 2
-        x: 777
-        y: 334
-        width: 236
-        height: 266
+        x: 0
+        y: 0
+        width: 260
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 453e82dab6ccfafe0800000000000000
-      internalID: -1175496214881705132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Var_Nose_005_1
-      rect:
-        serializedVersion: 2
-        x: 807
-        y: 597
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9484cfcdb83d6a70800000000000000
-      internalID: 8821769632974406812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Var_Nose_005_2
-      rect:
-        serializedVersion: 2
-        x: 825
-        y: 333
-        width: 13
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e545f8205d14cb30800000000000000
-      internalID: 4306599373794788839
+      spriteID: 681787957a0e853e0800000000000000
+      internalID: -2064653419784146554
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Var_Nose_005_0: -1175496214881705132
-      Var_Nose_005_1: 8821769632974406812
-      Var_Nose_005_2: 4306599373794788839
+      Var_002_Hair_Side_0: -2064653419784146554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
