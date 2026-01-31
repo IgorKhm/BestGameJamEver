@@ -47,12 +47,6 @@ public class NpcSpawner : MonoBehaviour
         float despawnX = spawnPoint.x - gameManager.CurrentLevel.leftDespawnOffset;
         float npcRandomMoveSpeed = Random.Range(gameManager.CurrentLevel.npcMoveMinSpeed, gameManager.CurrentLevel.npcMoveMaxSpeed);
 
-        foreach (var childSprite in go.GetComponentsInChildren<SpriteRenderer>())
-        {
-            childSprite.sortingOrder -= (int)(spawnPoint.y * 10);
-        }
-
-
         string dbg = ""; // optional: show relevant features for debugging
         // string dbg = gameManager.BuildMaskDebugString(mask);
 
@@ -77,9 +71,7 @@ public class NpcSpawner : MonoBehaviour
     private Vector3 GetNpcSpawnerLocation()
     {
         float spawnVerticalValue = Random.Range(topSpawnPoint.position.y, bottomSpawnPoint.position.y);
-        spawnVerticalValue -= 
-            (spawnVerticalValue % (npcCollider.size.y / 2) + 
-             Random.Range(npcCollider.size.y * -0.1f, npcCollider.size.y * 0.1f));
+        //spawnVerticalValue -= spawnVerticalValue % (npcCollider.size.y / 2);
         float spawnHorizontalValue = Random.Range(topSpawnPoint.position.x, bottomSpawnPoint.position.x);
         Vector3 randomSpawnLocation = new Vector3(spawnHorizontalValue, spawnVerticalValue, 0);
         return randomSpawnLocation;
