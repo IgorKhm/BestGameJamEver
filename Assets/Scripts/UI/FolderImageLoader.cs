@@ -39,7 +39,7 @@ public class FolderImageLoader : MonoBehaviour
         sprites = Resources.LoadAll<Sprite>(resourceFolderName);
         
         if (sprites == null || sprites.Length == 0)
-            Debug.LogWarning($"[FolderImageLoader] No sprites in Resources/{resourceFolderName}/");
+            Debug.LogWarning($"[FolderImageLoader] No sprites in Resources/FaceParts/{resourceFolderName}/");
         else
             Debug.Log($"[FolderImageLoader] Loaded {sprites.Length} sprites from {resourceFolderName}");
     }

@@ -1,16 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System.Collections;
 
 /// <summary>
-/// Vertical carousel to switch between feature pickers (nose, mouth, eyes, etc.)
-/// Each "item" is a horizontal picker panel.
+/// Vertical carousel using Update-based animation (more reliable than coroutines).
 /// </summary>
 public class VerticalCarousel : MonoBehaviour
 {
     [Header("Feature Pickers (top to bottom)")]
-    [Tooltip("Each picker panel (contains its own HorizontalCarousel)")]
     public RectTransform[] pickers;
     
     [Header("Navigation")]
@@ -22,17 +19,27 @@ public class VerticalCarousel : MonoBehaviour
     public float slideDuration = 0.5f;
     public float slideDistance = 150f;
     
+    [Header("Title Display")]
+    public Image facePartTitleBox;
+    public Sprite[] titleSprites;
+    
     [Header("Events")]
     public UnityEvent<int> onPickerChanged;
     
     private int currentIndex = 0;
+    
+    // Animation state
     private bool isAnimating = false;
+    private float animTime = 0f;
+    private RectTransform outPicker;
+    private RectTransform inPicker;
+    private float animDir = 1f;
+    private int targetIndex = 0;
 
     public int CurrentIndex => currentIndex;
 
     void Start()
     {
-        // Show only first picker
         for (int i = 0; i < pickers.Length; i++)
         {
             if (pickers[i] != null)
@@ -44,64 +51,127 @@ public class VerticalCarousel : MonoBehaviour
         
         if (downButton != null)
             downButton.onClick.AddListener(ShowNext);
+        
+        UpdateTitle(currentIndex);
+    }
+    
+    void Update()
+    {
+        if (!isAnimating) return;
+        
+        // Safety: if pickers are null, force finish
+        if (outPicker == null || inPicker == null)
+        {
+            Debug.LogWarning("[VerticalCarousel] Picker became null during animation - forcing finish");
+            ForceFinish();
+            return;
+        }
+        
+        animTime += Time.deltaTime;
+        float t = Mathf.Clamp01(animTime / slideDuration);
+        float smooth = Mathf.SmoothStep(0, 1, t);
+        
+        // Safety: try-catch for position updates
+        try
+        {
+            outPicker.anchoredPosition = new Vector2(0, animDir * slideDistance * smooth);
+            inPicker.anchoredPosition = new Vector2(0, -animDir * slideDistance * (1 - smooth));
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[VerticalCarousel] Animation error: {e.Message}");
+            ForceFinish();
+            return;
+        }
+        
+        if (t >= 1f)
+        {
+            FinishAnimation();
+        }
+    }
+    
+    void ForceFinish()
+    {
+        isAnimating = false;
+        currentIndex = targetIndex;
+        UpdateTitle(currentIndex);
+        
+        // Hide all except current
+        for (int i = 0; i < pickers.Length; i++)
+        {
+            if (pickers[i] != null)
+                pickers[i].gameObject.SetActive(i == currentIndex);
+        }
+        
+        outPicker = null;
+        inPicker = null;
+    }
+    
+    void UpdateTitle(int index)
+    {
+        if (facePartTitleBox == null) return;
+        if (titleSprites != null && index >= 0 && index < titleSprites.Length && titleSprites[index] != null)
+        {
+            facePartTitleBox.sprite = titleSprites[index];
+            facePartTitleBox.SetNativeSize();
+        }
     }
 
     public void ShowNext()
     {
-        Debug.Log($"[VerticalCarousel] ShowNext called. isAnimating={isAnimating}, count={pickers.Length}, current={currentIndex}");
         if (isAnimating || pickers.Length == 0) return;
         int nextIndex = (currentIndex + 1) % pickers.Length;
-        StartCoroutine(DoSlide(currentIndex, nextIndex, true)); // Slide up
+        StartSlide(currentIndex, nextIndex, true);
     }
 
     public void ShowPrevious()
     {
-        Debug.Log($"[VerticalCarousel] ShowPrevious called. isAnimating={isAnimating}, count={pickers.Length}, current={currentIndex}");
         if (isAnimating || pickers.Length == 0) return;
         int prevIndex = currentIndex - 1;
         if (prevIndex < 0) prevIndex = pickers.Length - 1;
-        StartCoroutine(DoSlide(currentIndex, prevIndex, false)); // Slide down
+        StartSlide(currentIndex, prevIndex, false);
     }
-
-    IEnumerator DoSlide(int fromIndex, int toIndex, bool slideUp)
+    
+    void StartSlide(int fromIndex, int toIndex, bool slideUp)
     {
-        isAnimating = true;
+        if (fromIndex < 0 || fromIndex >= pickers.Length) return;
+        if (toIndex < 0 || toIndex >= pickers.Length) return;
+        if (pickers[fromIndex] == null || pickers[toIndex] == null) return;
         
-        RectTransform outPicker = pickers[fromIndex];
-        RectTransform inPicker = pickers[toIndex];
+        outPicker = pickers[fromIndex];
+        inPicker = pickers[toIndex];
+        targetIndex = toIndex;
+        animDir = slideUp ? 1f : -1f;
+        animTime = 0f;
         
-        // Direction: slideUp means current goes up (positive Y), new comes from below (negative Y)
-        float dir = slideUp ? 1f : -1f;
-        
-        // Starting positions
+        // Reset positions
         outPicker.anchoredPosition = Vector2.zero;
-        inPicker.anchoredPosition = new Vector2(0, -dir * slideDistance);
+        inPicker.anchoredPosition = new Vector2(0, -animDir * slideDistance);
         inPicker.gameObject.SetActive(true);
         
-        // Animate
-        float time = 0f;
-        while (time < slideDuration)
-        {
-            time += Time.deltaTime;
-            float t = Mathf.Clamp01(time / slideDuration);
-            float smooth = Mathf.SmoothStep(0, 1, t);
-            
-            // Outgoing moves away (up or down)
-            outPicker.anchoredPosition = new Vector2(0, dir * slideDistance * smooth);
-            // Incoming moves to center
-            inPicker.anchoredPosition = new Vector2(0, -dir * slideDistance * (1 - smooth));
-            
-            yield return null;
-        }
-        
-        // Finalize
-        outPicker.anchoredPosition = Vector2.zero;
-        inPicker.anchoredPosition = Vector2.zero;
-        outPicker.gameObject.SetActive(false);
-        
-        currentIndex = toIndex;
+        Debug.Log($"[VerticalCarousel] Starting slide from {outPicker.name} to {inPicker.name}");
+        isAnimating = true;
+    }
+    
+    void FinishAnimation()
+    {
+        Debug.Log($"[VerticalCarousel] FinishAnimation - now at index {targetIndex}");
         isAnimating = false;
         
+        if (outPicker != null)
+        {
+            outPicker.anchoredPosition = Vector2.zero;
+            outPicker.gameObject.SetActive(false);
+        }
+        
+        if (inPicker != null)
+            inPicker.anchoredPosition = Vector2.zero;
+        
+        currentIndex = targetIndex;
+        UpdateTitle(currentIndex);
         onPickerChanged?.Invoke(currentIndex);
+        
+        outPicker = null;
+        inPicker = null;
     }
 }
