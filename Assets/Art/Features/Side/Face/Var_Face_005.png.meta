@@ -5,15 +5,6 @@ TextureImporter:
   - first:
       213: -3760033633829061369
     second: Var_Face_005_0
-  - first:
-      213: -8107383418263789985
-    second: Var_Face_005_1
-  - first:
-      213: -7385492544661493406
-    second: Var_Face_005_2
-  - first:
-      213: -2503710939635657355
-    second: Var_Face_005_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,10 +103,10 @@ TextureImporter:
       name: Var_Face_005_0
       rect:
         serializedVersion: 2
-        x: 407
-        y: 116
-        width: 461
-        height: 898
+        x: 534
+        y: 95
+        width: 413
+        height: 918
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,72 +117,6 @@ TextureImporter:
       bones: []
       spriteID: 70df810e45da1dbc0800000000000000
       internalID: -3760033633829061369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Var_Face_005_1
-      rect:
-        serializedVersion: 2
-        x: 846
-        y: 685
-        width: 7
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5e9e706cb9cc7f80800000000000000
-      internalID: -8107383418263789985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Var_Face_005_2
-      rect:
-        serializedVersion: 2
-        x: 846
-        y: 668
-        width: 12
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 269e72029a5718990800000000000000
-      internalID: -7385492544661493406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Var_Face_005_3
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 158
-        width: 8
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 575d1c66a28014dd0800000000000000
-      internalID: -2503710939635657355
       vertices: []
       indices: 
       edges: []
@@ -211,9 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Var_Face_005_0: -3760033633829061369
-      Var_Face_005_1: -8107383418263789985
-      Var_Face_005_2: -7385492544661493406
-      Var_Face_005_3: -2503710939635657355
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

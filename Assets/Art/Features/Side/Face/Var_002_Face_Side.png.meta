@@ -103,10 +103,10 @@ TextureImporter:
       name: Var_002_Face_Side_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 300
-        height: 890
+        x: 537
+        y: 97
+        width: 411
+        height: 921
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
