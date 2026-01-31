@@ -49,7 +49,7 @@ public class NpcSpawner : MonoBehaviour
 
         foreach (var childSprite in go.GetComponentsInChildren<SpriteRenderer>())
         {
-            childSprite.sortingOrder = -(int)(spawnPoint.y * 10);
+            childSprite.sortingOrder -= (int)(spawnPoint.y * 10);
         }
 
 

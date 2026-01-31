@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Var_Hair_02
   m_EditorClassIdentifier: 
   variantId: hair_02
-  sprite: {fileID: 0}
+  sprite: {fileID: -2064653419784146554, guid: 15070fab8fa7be740b0740fc238a0c1f, type: 3}
   placeholderColor: {r: 0.07847777, g: 0.258403, b: 0.8050314, a: 1}
