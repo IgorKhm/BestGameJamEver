@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Beard_01
   m_EditorClassIdentifier: 
-  variantId: beard_01
-  sprite: {fileID: -3052505826855623167, guid: e6536afe3203c46429b477983cb04f1d, type: 3}
+  variantId: Var_002_Beard
+  sprite: {fileID: -3052505826855623167, guid: 16060fab87523ce42bcbd478fc8710d7, type: 3}
   placeholderColor: {r: 0.112811394, g: 0.8117647, b: 0.08235292, a: 1}

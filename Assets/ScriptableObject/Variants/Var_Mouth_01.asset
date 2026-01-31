@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Var_Mouth_01
   m_EditorClassIdentifier: 
   variantId: mouth_01
-  sprite: {fileID: -3259524400771214585, guid: 96049365257054242a82b2c5187f11a0, type: 3}
+  sprite: {fileID: 5063148273311155266, guid: 1ce03592e32ea744aa9e22d03b1114f4, type: 3}
   placeholderColor: {r: 0.8113208, g: 0.7877765, b: 0.08419358, a: 1}
