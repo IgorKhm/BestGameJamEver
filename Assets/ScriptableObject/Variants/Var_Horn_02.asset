@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a883938d9dd1148a8b81a561c12b1f, type: 3}
-  m_Name: Nose_Feature
+  m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
+  m_Name: Var_Horn_02
   m_EditorClassIdentifier: 
-  featureId: nose
-  displayName: Nose
-  variants:
-  - {fileID: 11400000, guid: 66919db602a41a84bbe14d9824347af4, type: 2}
-  - {fileID: 11400000, guid: c90639e5935879b4c8c179500df6fc2a, type: 2}
+  variantId: mouth_01
+  sprite: {fileID: 0}
+  placeholderColor: {r: 0.08235292, g: 0.23834617, b: 0.8117647, a: 1}

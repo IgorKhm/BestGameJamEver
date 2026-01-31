@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a883938d9dd1148a8b81a561c12b1f, type: 3}
   m_Name: Horns_Feature
   m_EditorClassIdentifier: 
-  featureId: beard
-  displayName: Beard
+  featureId: horns
+  displayName: Horns
   variants:
   - {fileID: 11400000, guid: c4f72632cdbe5c344aa285acf13c8845, type: 2}
