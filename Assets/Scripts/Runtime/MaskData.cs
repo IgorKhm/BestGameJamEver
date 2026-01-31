@@ -12,6 +12,7 @@ public class MaskChoice
 [Serializable]
 public class MaskData
 {
+    Dictionary<string, int> variant_choice = new();
     public List<MaskChoice> choices = new();
 
     public void EnsureAllFeatures(List<FeatureDefinition> allFeatures)
@@ -37,6 +38,7 @@ public class MaskData
             choices.Add(new MaskChoice { feature = f, variantIndex = idx });
             return;
         }
+
         c.variantIndex = idx;
     }
 }
