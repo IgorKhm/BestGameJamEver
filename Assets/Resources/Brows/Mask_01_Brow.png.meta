@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 233460abd37fc4c86aa9be8fd0b498b7
+guid: f21d383a09b634c37996b22c1a5f6bb2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3875833518491710162
-    second: Mask_2_Mouth_0
+      213: -6913594567592754748
+    second: Mask_01_Brow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mask_2_Mouth_0
+      name: Mask_01_Brow_0
       rect:
         serializedVersion: 2
-        x: 453
-        y: 190
-        width: 181
-        height: 119
+        x: 342
+        y: 562
+        width: 148
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2dcfb133f5463ac0800000000000000
-      internalID: -3875833518491710162
+      spriteID: 4c1409dde5afd00a0800000000000000
+      internalID: -6913594567592754748
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mask_2_Mouth_0: -3875833518491710162
+      Mask_01_Brow_0: -6913594567592754748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

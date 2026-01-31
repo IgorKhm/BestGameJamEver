@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 233460abd37fc4c86aa9be8fd0b498b7
+guid: 2d6acc4a3f69a41fbb6b8f24de892c11
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3875833518491710162
-    second: Mask_2_Mouth_0
+      213: -6111765102222816695
+    second: Mask_01_Hair_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mask_2_Mouth_0
+      name: Mask_01_Hair_0
       rect:
         serializedVersion: 2
-        x: 453
-        y: 190
-        width: 181
-        height: 119
+        x: 406
+        y: 826
+        width: 268
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2dcfb133f5463ac0800000000000000
-      internalID: -3875833518491710162
+      spriteID: 94a41636506ae2ba0800000000000000
+      internalID: -6111765102222816695
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Mask_2_Mouth_0: -3875833518491710162
+      Mask_01_Hair_0: -6111765102222816695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

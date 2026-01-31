@@ -17,11 +17,29 @@ public class HorizontalCarousel : MonoBehaviour
     public float slideDuration = 0.6f;
     public float slideDistance = 200f;
     
+    [Header("MaskView Sync")]
+    [Tooltip("The Image in MaskView to update when carousel changes")]
+    public Image maskViewImage;
+    
+    [Tooltip("Mirrored Image in MaskView (for eyes, ears, horns, etc.)")]
+    public Image maskViewMirrorImage;
+    
+    [Tooltip("Sprites to show in MaskView (same order as items)")]
+    public Sprite[] maskViewSprites;
+    
+    [Tooltip("Use SetNativeSize on MaskView image")]
+    public bool useNativeSize = true;
+    
+    [Tooltip("Reset position to 0,0 (disable for cropped sprites that have their own position)")]
+    public bool centerPosition = false;
+    
     [Header("Events")]
     public UnityEvent<int> onItemChanged;
     
     private int currentIndex = 0;
     private bool isAnimating = false;
+
+    public int CurrentIndex => currentIndex;
 
     void Start()
     {
@@ -36,6 +54,9 @@ public class HorizontalCarousel : MonoBehaviour
         
         if (rightButton != null)
             rightButton.onClick.AddListener(ShowNext);
+        
+        // Update MaskView with initial sprite
+        UpdateMaskView();
     }
 
     public void ShowNext()
@@ -86,6 +107,66 @@ public class HorizontalCarousel : MonoBehaviour
         currentIndex = toIndex;
         isAnimating = false;
         
+        // Update MaskView
+        UpdateMaskView();
+        
         onItemChanged?.Invoke(currentIndex);
+    }
+
+    void UpdateMaskView()
+    {
+        if (maskViewSprites == null || currentIndex >= maskViewSprites.Length || maskViewSprites[currentIndex] == null)
+            return;
+        
+        Sprite sprite = maskViewSprites[currentIndex];
+        
+        // Update main image
+        if (maskViewImage != null)
+        {
+            maskViewImage.sprite = sprite;
+            
+            if (useNativeSize)
+                maskViewImage.SetNativeSize();
+            
+            if (centerPosition)
+            {
+                var rect = maskViewImage.GetComponent<RectTransform>();
+                if (rect != null)
+                    rect.anchoredPosition = Vector2.zero;
+            }
+        }
+        
+        // Update mirrored image (same sprite, but the Image object has Scale X = -1)
+        if (maskViewMirrorImage != null)
+        {
+            maskViewMirrorImage.sprite = sprite;
+            
+            if (useNativeSize)
+                maskViewMirrorImage.SetNativeSize();
+            
+            if (centerPosition)
+            {
+                var rect = maskViewMirrorImage.GetComponent<RectTransform>();
+                if (rect != null)
+                    rect.anchoredPosition = Vector2.zero;
+            }
+        }
+    }
+
+    public void SetIndex(int index)
+    {
+        if (index < 0 || index >= items.Length) return;
+        
+        // Hide current
+        if (items[currentIndex] != null)
+            items[currentIndex].gameObject.SetActive(false);
+        
+        currentIndex = index;
+        
+        // Show new
+        if (items[currentIndex] != null)
+            items[currentIndex].gameObject.SetActive(true);
+        
+        UpdateMaskView();
     }
 }
