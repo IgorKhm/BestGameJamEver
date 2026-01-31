@@ -12,6 +12,10 @@ public class EscapeButton : MonoBehaviour
 
     private void Start()
     {
-        InputSystem.Instance.OnEscapePressed+= () => button.onClick.Invoke();
+        InputSystem.Instance.OnEscapePressed += () =>
+        {
+            if (button.gameObject.activeInHierarchy)
+                button.onClick.Invoke();
+        };
     }
 }
