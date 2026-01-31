@@ -13,15 +13,18 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Configs")] public List<FeatureDefinition> allFeatures = new();
+    [Header("Configs")]
+    public List<FeatureDefinition> allFeatures = new();
     public List<LevelConfig> levels = new();
     public int startLevelIndex = 0;
 
-    [Header("UI")] public TMP_Text capacityText;
+    [Header("UI")]
+    public TMP_Text capacityText;
     public GameObject builderPanel;
     public TMP_Text stateText; // optional
 
-    [Header("Wiring")] public NpcSpawner npcSpawner;
+    [Header("Wiring")]
+    public NpcSpawner npcSpawner;
 
 
     public Transform wayBackPosition;
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     private int _levelIndex;
     private int _capacity;
     private PartyRule _rule;
-
+    
     private MaskData _playerMask = new();
     private GameState _state = GameState.Observing;
     private float _timer;
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
         StartLevel(_levelIndex);
         IsRunning = true;
     }
+    
 
 
     private void Update()
@@ -178,6 +182,7 @@ public class GameManager : MonoBehaviour
                 p.z = 0f;
                 playerTransform.position = p;
             }
+
         }
     }
 

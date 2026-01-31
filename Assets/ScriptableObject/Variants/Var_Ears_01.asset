@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9132d9ed6073c4eb051007d3ec2d22, type: 3}
   m_Name: Var_Ears_01
   m_EditorClassIdentifier: 
-  variantId: ear_01
+  variantId: Var_Ear_005
   sprite: {fileID: -3376502221147711708, guid: b1b46a2f806332f429163d347b2c8b26, type: 3}
   placeholderColor: {r: 0.8113208, g: 0.7877765, b: 0.08419358, a: 1}

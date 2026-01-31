@@ -3,6 +3,11 @@ using UnityEngine;
 public class BuilderPanelManager : MonoBehaviour
 {
     [SerializeField] private GameObject builderPanel;
+
+    [SerializeField] private GameManager gameManager;
+    
+    [Header("UI")]
+    public MaskBuilderToMaskDataBridge syncedDataBridge;
     
     private CanvasGroup _canvasGroup;
 
@@ -41,6 +46,7 @@ public class BuilderPanelManager : MonoBehaviour
     /// </summary>
     public void DisableBuilderPanel()
     {
+        syncedDataBridge.SyncMaskFromUI();
         if (builderPanel != null)
         {
             builderPanel.SetActive(false);
@@ -52,4 +58,5 @@ public class BuilderPanelManager : MonoBehaviour
             _canvasGroup.blocksRaycasts = false;
         }
     }
+
 }

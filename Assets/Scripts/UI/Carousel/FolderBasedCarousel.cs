@@ -46,7 +46,13 @@ public class FolderBasedCarousel : MonoBehaviour
 
     public int CurrentIndex => currentIndex;
     public int Count => sprites != null ? sprites.Length : 0;
-    public Sprite CurrentSprite => sprites != null && currentIndex < sprites.Length ? sprites[currentIndex] : null;
+    public Sprite CurrentSprite
+    {
+        get
+        {
+            return sprites != null && currentIndex < sprites.Length ? sprites[currentIndex] : null;
+        }
+    }
 
     void Start()
     {

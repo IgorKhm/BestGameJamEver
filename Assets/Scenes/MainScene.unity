@@ -1913,6 +1913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   builderPanel: {fileID: 767553662}
+  gameManager: {fileID: 0}
+  syncedDataBridge: {fileID: 0}
 --- !u!1 &563694247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,6 +2648,7 @@ GameObject:
   - component: {fileID: 767553665}
   - component: {fileID: 767553664}
   - component: {fileID: 767553669}
+  - component: {fileID: 767553670}
   m_Layer: 5
   m_Name: BuilderPanel
   m_TagString: Untagged
@@ -2738,6 +2741,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   builderPanel: {fileID: 767553662}
+  gameManager: {fileID: 983099502}
+  syncedDataBridge: {fileID: 767553670}
+--- !u!114 &767553670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767553662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc34663624c4a11963473056ad8581b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 983099502}
+  bindings:
+  - feature: {fileID: 11400000, guid: 4c53a6c12076f484fbfa17aab4cde521, type: 2}
+    folderCarousel: {fileID: 978430092}
+    horizontalCarousel: {fileID: 0}
+    mapBySprite: 1
+    debug: 1
+  - feature: {fileID: 11400000, guid: be8c4efcbae552848809caf005834bb9, type: 2}
+    folderCarousel: {fileID: 1677992777}
+    horizontalCarousel: {fileID: 0}
+    mapBySprite: 1
+    debug: 1
+  syncUIFromMaskOnEnable: 1
+  syncMaskFromUIOnStart: 1
 --- !u!1 &771414216
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,7 +5131,6 @@ GameObject:
   - component: {fileID: 1578914506}
   - component: {fileID: 1578914509}
   - component: {fileID: 1578914508}
-  - component: {fileID: 1578914511}
   - component: {fileID: 1578914510}
   m_Layer: 5
   m_Name: CloseButton
@@ -5223,19 +5253,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1578914511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578914505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b34b8f7620d74b84ae66cabe78c52b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  builderPanel: {fileID: 767553662}
 --- !u!1 &1588446236
 GameObject:
   m_ObjectHideFlags: 0
