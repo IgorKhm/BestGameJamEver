@@ -17,6 +17,9 @@ public class FolderBasedCarousel : MonoBehaviour
     [Tooltip("The Image in the picker that shows current sprite")]
     public Image displayImage;
     
+    [Tooltip("Mirrored Image in the picker (leave empty if not needed)")]
+    public Image displayMirrorImage;
+    
     [Header("MaskView Display")]
     [Tooltip("The Image in MaskView that should also update (e.g., Nose_Feature's image)")]
     public Image maskViewImage;
@@ -39,6 +42,7 @@ public class FolderBasedCarousel : MonoBehaviour
     private int currentIndex = 0;
     private bool isAnimating = false;
     private RectTransform displayRect;
+    private RectTransform displayMirrorRect;
 
     public int CurrentIndex => currentIndex;
     public int Count => sprites != null ? sprites.Length : 0;
@@ -49,9 +53,10 @@ public class FolderBasedCarousel : MonoBehaviour
         LoadSpritesFromFolder();
         
         if (displayImage != null)
-        {
             displayRect = displayImage.GetComponent<RectTransform>();
-        }
+        
+        if (displayMirrorImage != null)
+            displayMirrorRect = displayMirrorImage.GetComponent<RectTransform>();
         
         ShowCurrentSprite();
     }
@@ -81,6 +86,13 @@ public class FolderBasedCarousel : MonoBehaviour
         {
             displayImage.sprite = current;
             displayImage.SetNativeSize();
+        }
+        
+        // Update picker mirror display
+        if (displayMirrorImage != null)
+        {
+            displayMirrorImage.sprite = current;
+            displayMirrorImage.SetNativeSize();
         }
         
         // Update MaskView display
@@ -146,6 +158,10 @@ public class FolderBasedCarousel : MonoBehaviour
         Vector2 exitPos = new Vector2(-dir * slideDistance, 0);
         Vector2 enterPos = new Vector2(dir * slideDistance, 0);
         
+        // Mirror moves same direction as main
+        Vector2 mirrorExitPos = exitPos;
+        Vector2 mirrorEnterPos = enterPos;
+        
         // Slide out
         float time = 0f;
         while (time < slideDuration / 2f)
@@ -153,7 +169,11 @@ public class FolderBasedCarousel : MonoBehaviour
             time += Time.deltaTime;
             float t = Mathf.Clamp01(time / (slideDuration / 2f));
             float smooth = Mathf.SmoothStep(0, 1, t);
+            
             displayRect.anchoredPosition = Vector2.Lerp(startPos, exitPos, smooth);
+            if (displayMirrorRect != null)
+                displayMirrorRect.anchoredPosition = Vector2.Lerp(startPos, mirrorExitPos, smooth);
+            
             yield return null;
         }
         
@@ -161,6 +181,8 @@ public class FolderBasedCarousel : MonoBehaviour
         currentIndex = newIndex;
         ShowCurrentSprite();
         displayRect.anchoredPosition = enterPos;
+        if (displayMirrorRect != null)
+            displayMirrorRect.anchoredPosition = mirrorEnterPos;
         
         // Slide in
         time = 0f;
@@ -169,11 +191,18 @@ public class FolderBasedCarousel : MonoBehaviour
             time += Time.deltaTime;
             float t = Mathf.Clamp01(time / (slideDuration / 2f));
             float smooth = Mathf.SmoothStep(0, 1, t);
+            
             displayRect.anchoredPosition = Vector2.Lerp(enterPos, startPos, smooth);
+            if (displayMirrorRect != null)
+                displayMirrorRect.anchoredPosition = Vector2.Lerp(mirrorEnterPos, startPos, smooth);
+            
             yield return null;
         }
         
         displayRect.anchoredPosition = Vector2.zero;
+        if (displayMirrorRect != null)
+            displayMirrorRect.anchoredPosition = Vector2.zero;
+        
         isAnimating = false;
     }
 

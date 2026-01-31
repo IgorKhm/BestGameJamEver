@@ -48,6 +48,7 @@ public class VerticalCarousel : MonoBehaviour
 
     public void ShowNext()
     {
+        Debug.Log($"[VerticalCarousel] ShowNext called. isAnimating={isAnimating}, count={pickers.Length}, current={currentIndex}");
         if (isAnimating || pickers.Length == 0) return;
         int nextIndex = (currentIndex + 1) % pickers.Length;
         StartCoroutine(DoSlide(currentIndex, nextIndex, true)); // Slide up
@@ -55,6 +56,7 @@ public class VerticalCarousel : MonoBehaviour
 
     public void ShowPrevious()
     {
+        Debug.Log($"[VerticalCarousel] ShowPrevious called. isAnimating={isAnimating}, count={pickers.Length}, current={currentIndex}");
         if (isAnimating || pickers.Length == 0) return;
         int prevIndex = currentIndex - 1;
         if (prevIndex < 0) prevIndex = pickers.Length - 1;
