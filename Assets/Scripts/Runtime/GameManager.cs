@@ -13,18 +13,15 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Configs")]
-    public List<FeatureDefinition> allFeatures = new();
+    [Header("Configs")] public List<FeatureDefinition> allFeatures = new();
     public List<LevelConfig> levels = new();
     public int startLevelIndex = 0;
 
-    [Header("UI")]
-    public TMP_Text capacityText;
+    [Header("UI")] public TMP_Text capacityText;
     public GameObject builderPanel;
     public TMP_Text stateText; // optional
 
-    [Header("Wiring")]
-    public NpcSpawner npcSpawner;
+    [Header("Wiring")] public NpcSpawner npcSpawner;
 
     // Runtime
     public bool IsRunning { get; private set; }
@@ -34,29 +31,28 @@ public class GameManager : MonoBehaviour
     private int _levelIndex;
     private int _capacity;
     private PartyRule _rule;
-    
+
     private MaskData _playerMask = new();
     private GameState _state = GameState.Observing;
     private float _timer;
-    
-    [Header("Player Movement (World)")]
-    public Transform playerTransform;
+
+    [Header("Player Movement (World)")] public Transform playerTransform;
     public Transform playerStartPoint;
     public Transform doorQueuePoint;
 
     private Vector3 _moveFrom;
     private Vector3 _moveTo;
     private float _moveDuration;
-    
+
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject gameplayUIPanel;
 
 
     private void Start()
     {
-        IsRunning = false;   // wait for Play button
+        IsRunning = false; // wait for Play button
     }
-    
+
     public void StartGame()
     {
         _levelIndex = Mathf.Clamp(startLevelIndex, 0, levels.Count - 1);
@@ -64,7 +60,6 @@ public class GameManager : MonoBehaviour
         StartLevel(_levelIndex);
         IsRunning = true;
     }
-    
 
 
     private void Update()
@@ -93,8 +88,8 @@ public class GameManager : MonoBehaviour
         _levelIndex = idx;
 
         // --- HARD RESET OF SCENE STATE ---
-        ShowBuilder(false);        // close builder
-        LockBuilder(false);        // unlock (in case we were mid-line)
+        ShowBuilder(false); // close builder
+        LockBuilder(false); // unlock (in case we were mid-line)
 
         _state = GameState.Observing;
         _timer = 0f;
@@ -140,7 +135,11 @@ public class GameManager : MonoBehaviour
     public void AttemptEntry()
     {
         if (_state != GameState.Observing) return;
-        if (_capacity >= CurrentLevel.maxCapacity) { FailLevel(); return; }
+        if (_capacity >= CurrentLevel.maxCapacity)
+        {
+            FailLevel();
+            return;
+        }
 
         LockBuilder(true);
         _state = GameState.InLineForward;
@@ -168,10 +167,10 @@ public class GameManager : MonoBehaviour
             LockBuilder(false);
             if (playerTransform != null && playerStartPoint != null)
             {
-                var p = playerStartPoint.position; p.z = 0f;
+                var p = playerStartPoint.position;
+                p.z = 0f;
                 playerTransform.position = p;
             }
-
         }
     }
 
@@ -207,14 +206,16 @@ public class GameManager : MonoBehaviour
 
     private bool DoesMaskMatchRule(MaskData mask, PartyRule rule)
     {
-        return true;
+        // return true;
+        int countCorrectFeatures = 0;
         foreach (var f in rule.relevantFeatures)
         {
             int need = rule.requiredVariantIndex[f];
             int have = mask.GetVariantIndex(f);
-            if (have != need) return false;
+            if (have == need) countCorrectFeatures++;
         }
-        return true;
+
+        return countCorrectFeatures >= CurrentLevel.numberOfCorrectFeaturesToPass;
     }
 
     private void CompleteLevel()
@@ -320,11 +321,10 @@ public class GameManager : MonoBehaviour
 
         if (stateText != null)
             stateText.text = $"State: {_state}";
-        
-        UpdatePlayerMovement();
 
+        UpdatePlayerMovement();
     }
-    
+
     private void UpdatePlayerMovement()
     {
         if (playerTransform == null) return;
