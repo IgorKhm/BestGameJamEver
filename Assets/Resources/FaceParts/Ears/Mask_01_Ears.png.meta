@@ -3,8 +3,8 @@ guid: 5a73689d5d1d6e046976e49d3c2310e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7769657149027878268
-    second: Var_002_Brow_Side_0
+      213: 1044174576395881099
+    second: Mask_01_Ears_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Var_002_Brow_Side_0
+      name: Mask_01_Ears_0
       rect:
         serializedVersion: 2
-        x: 292
-        y: 589
-        width: 240
-        height: 128
+        x: 210
+        y: 408
+        width: 193
+        height: 324
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48a7e950df1ac2490800000000000000
-      internalID: -7769657149027878268
+      spriteID: b8a0295be37ad7e00800000000000000
+      internalID: 1044174576395881099
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Var_002_Brow_Side_0: -7769657149027878268
+      Mask_01_Ears_0: 1044174576395881099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
