@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 201674502}
   - component: {fileID: 201674501}
   - component: {fileID: 201674500}
+  - component: {fileID: 201674503}
   m_Layer: 5
   m_Name: AttemptEntryButton
   m_TagString: Untagged
@@ -502,6 +503,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201674498}
   m_CullTransparentMesh: 1
+--- !u!114 &201674503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201674498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88aed598f730a74c9ada54380b04f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &206086058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2869,7 @@ GameObject:
   - component: {fileID: 772517057}
   - component: {fileID: 772517056}
   - component: {fileID: 772517055}
+  - component: {fileID: 772517058}
   m_Layer: 5
   m_Name: BuildMaskButton
   m_TagString: Untagged
@@ -2977,6 +2991,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772517053}
   m_CullTransparentMesh: 1
+--- !u!114 &772517058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772517053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7bf5490b46e40478cb2f0f71d6f9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &818838509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2985,14 +3011,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 722585001775860794, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1083
-      objectReference: {fileID: 0}
-    - target: {fileID: 722585001775860794, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.36
-      objectReference: {fileID: 0}
     - target: {fileID: 735548920647731370, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.317306
@@ -3032,14 +3050,6 @@ PrefabInstance:
     - target: {fileID: 735548920647731370, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2411669147828731128, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.525
-      objectReference: {fileID: 0}
-    - target: {fileID: 2411669147828731128, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3081271203975799345, guid: 809aae58c4d055045a604efd34ad1249, type: 3}
       propertyPath: m_Camera
@@ -5209,6 +5219,7 @@ GameObject:
   - component: {fileID: 1578914509}
   - component: {fileID: 1578914508}
   - component: {fileID: 1578914510}
+  - component: {fileID: 1578914511}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -5330,6 +5341,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1578914511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578914505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9132077848efa440bea5b8e04dd094c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1588446236
 GameObject:
   m_ObjectHideFlags: 0

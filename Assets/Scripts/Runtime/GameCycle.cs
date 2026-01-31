@@ -40,6 +40,8 @@ public class GameCycle : MonoBehaviour
         SceneManager.sceneLoaded += (_, __) => ShowStart(); // after restart
 
         ShowStart();
+
+        InputSystem.Instance.OnRestartPressed += () => startPanel.SetActive(true);
     }
 
     private void ShowOnly(GameObject panel)
