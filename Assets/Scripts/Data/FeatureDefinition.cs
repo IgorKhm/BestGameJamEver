@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Masks/Feature Definition")]
+[CreateAssetMenu(menuName = "Masks/Feature Definition")] 
 public class FeatureDefinition : ScriptableObject
 {
     public string featureId;              // e.g. "eyes"
